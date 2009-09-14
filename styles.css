@@ -1,0 +1,28 @@
+* html body {
+	overflow: hidden;
+}
+
+pre {
+	margin: 1em;
+	font-weight: bold;
+	background-color: #FED;
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-color: #48C;
+	padding: 0.5em;
+	font-size: 120%;
+	overflow: auto;
+}
+
+#content {
+	position: absolute;
+	height: auto;
+	overflow: auto;
+	width: auto;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
