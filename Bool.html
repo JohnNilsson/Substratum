@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>WebIDE!</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			ol.expression {
+				list-style-type: none;
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+
+			ol.expression li {
+				padding-left: 1em;
+				padding-right: 1em;
+				text-aling: center;
+			}
+
+			li.output {
+				border-top: solid;
+			}
+
+			.expression {
+				padding-top: 0.3em;
+				padding-bottom: 0.3em;
+
+				display: inline-block;
+
+				border-radius: .5em;
+				-webkid-border-radius: .5em;
+				-moz-border-radius: .5em;
+				border-style: solid;
+				border-width: 1px;
+
+				background-color: #FF8;
+			}
+
+			.empty {
+				font-style: italic;
+			}
+
+			.value {
+				font-family: monospace;
+				font-weight: bold;
+			}
+
+			/*Added to a Drop when it is an valid target for the current drag operation*/
+			.yui-dd-drop-active-valid {
+				border-radius: .5em;
+				-webkid-border-radius: .5em;
+				-moz-border-radius: .5em;
+				border-color: #F00;
+				border-style: solid;
+				border-width: 2px;
+			}
+
+			/*Given to all Drag Nodes*/
+			.yui-dd-draggable {}
+			/*Added when a Drag instance is locked*/
+			.yui-dd-locked {}
+			/*Added while a Drag instance is active*/
+			.yui-dd-dragging {}
+			/*Given to the Proxy Node*/
+			.yui-dd-proxy {}
+			/*Given to all Drop Targets*/
+			.yui-dd-drop {}
+			/*Added when a Drop instance is locked*/
+			.yui-dd-drop-locked {}
+			/*Added to a Drop when it is an invalid target for the current drag operation*/
+			.yui-dd-drop-active-invalid {}
+			/*Added when a Drag instance is over this Drop Target*/
+			.yui-dd-drop-over {}
+		</style>
+	</head>
+	<body>
+		<div id="workspace"/>
+		<script src="http://yui.yahooapis.com/3.0.0/build/yui/yui-min.js"></script>
+		<script src="Bool.js"></script>
+	</body>
+</html>
