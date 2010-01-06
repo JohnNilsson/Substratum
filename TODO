@@ -1,0 +1,24 @@
+Implement a data store system
+=============================
+Programs are going to be use modules imported from around the web using URI's
+As a first approach I thing copying the modules code is the way to go, as a one time thing.
+Compare it to downloading a jar and slap it into the libs folder.
+
+The component can of course implement it's own update mechanism, have to see how reflection,
+moduleintegration and security can be combined...
+
+I propose that a suitable data store will look very much like the git datamodel. When importing a module
+what happens is that needed blobs are added to the local cache and some reference to the blob
+containing the uri, version and other metadata similar to gits commit objects.
+
+The URI as such should probable be compared to gits refs, and be implemented with HTTP redirect semantics
+to make this clear. http://example.org/substratum/Prelude temporary redirect to
+http://example.org/substratum/<some sha>
+
+
+
+Implement a language
+====================
+I think very much inspiration can be gathered from http://conal.net/papers/Eros/ but also see http://subtextual.org/
+
+In essence the language is a visual representations of composable expressions.
