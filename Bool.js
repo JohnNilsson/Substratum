@@ -37,7 +37,7 @@ var Substratum = function() {
 	};
 }();
 
-YUI({combine: true, timeout: 10000}).use('node','dd',function(Y) {
+YUI({combine: true, timeout: 10000}).use('node','dd','plugin',function(Y) {
 	var ws = Y.Node.get('#workspace');
 
 	var bool = Substratum.Bool.renderExpr([true],[true]);
@@ -46,9 +46,20 @@ YUI({combine: true, timeout: 10000}).use('node','dd',function(Y) {
 	ws.append(bool);
 	ws.append(bool);
 
+	Y.DD.DDM.on('drag:mouseDown', function(e) {
+		e.target.get('node').queryAll('.input').each(function(n){
+			Y.DD.DDM._removeValid(n.drop);
+		});
+	});
+
+	Y.DD.DDM.on('drag:end', function(e) {
+		e.target.get('node').queryAll('.input').each(function(n){
+			Y.DD.DDM._addValid(n.drop);
+		});
+	});
+
 	var currentDrop = null;
 	var oldExpr = null;
-
 	Y.DD.DDM.on('drag:enter', function(e) {
 		var drop = Y.DD.DDM.activeDrop;
 		if(drop != currentDrop)
@@ -73,19 +84,11 @@ YUI({combine: true, timeout: 10000}).use('node','dd',function(Y) {
 		}
 	});
 
-	/*
-	 * Y.DD.DDM.on('drag:start', function() {
-	 * ws.queryAll('.input').addClass('dropTarget'); });
-	 *
-	 * Y.DD.DDM.on('drag:end', function() {
-	 * ws.queryAll('.input').removeClass('dropTarget'); });
-	 */
-
 	ws.queryAll('.input').each(function(n) {
-		var d = new Y.DD.Drop({node: n});
+		n.plug(Y.Plugin.Drop);
     });
 
     ws.queryAll('.expression').each(function(n) {
-		var d = new Y.DD.Drag({node: n, dragMode: 'intersect'});
+    	n.plug(Y.Plugin.Drag);
     });
 });
